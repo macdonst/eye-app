@@ -21,8 +21,12 @@ export default function Head(state) {
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>${pageTitle}</title>
       ${styles}
+      <link rel="stylesheet" href="/_public/css/index.css">
+      <link rel="stylesheet" href="/_public/css/components.css">
       <link rel="icon" href="/_public/favicon.svg">
       <meta name="description" content="The HTML first full stack web framework.">
+      <script type="module" src="https://jelly-ui.com/package.js"></script>
+      <script type="module" src="/_public/index.js"></script>
     </head>
 `
 }

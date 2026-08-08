@@ -6,7 +6,9 @@ export default async function Preflight({ req }) {
 
 function getPageTitle(path) {
   const titleMap = {
-    '/': 'Enhance Starter Project'
+    '/': 'Home',
+    '/articles': 'Articles',
+    '/cases': 'Cases'
   }
 
   return titleMap[path]

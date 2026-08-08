@@ -1,0 +1,75 @@
+responsive-grid {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas:
+        'header'
+        'main'
+        'footer';
+    grid-template-rows: min-content 1fr min-content;
+}
+
+responsive-grid header {
+    grid-area: header;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: var(--header-h);
+    padding: 0 clamp(16px, 4vw, 32px);
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    overflow-x: clip;
+}
+
+responsive-grid nav {
+    grid-area: left-sidebar;
+    display: none;
+    align-self: stretch;
+}
+
+responsive-grid nav > * {
+    position: sticky;
+    top: var(--header-height);
+}
+
+responsive-grid main {
+    grid-area: main;
+    min-height: 0;
+}
+responsive-grid aside {
+    grid-area: right-sidebar;
+    display: none;
+}
+responsive-grid footer {
+    grid-area: footer;
+}
+
+/* >= 40rem: two-column layout; the middle row is 1fr so nav column fills to footer */
+@media (min-width: 40rem) {
+    responsive-grid {
+        grid-template:
+        'header       header'         min-content
+        'left-sidebar main'           1fr
+        'footer       footer'         min-content
+        / minmax(auto, var(--layout-max-sidebar-width, 16rem))
+          minmax(var(--layout-min-content-width, 16rem), 1fr);
+    }
+    responsive-grid nav { display: block; }
+}
+
+/* >= 80rem: three-column layout */
+@media (min-width: 80rem) {
+    responsive-grid {
+        grid-template:
+        'header       header       header'        min-content
+        'left-sidebar main         right-sidebar' 1fr
+        'footer       footer       footer'        min-content
+        / minmax(auto, var(--layout-max-sidebar-width, 16rem))
+          minmax(var(--layout-min-content-width, 16rem), 1fr)
+          minmax(auto, var(--layout-max-sidebar-width, 16rem));
+    }
+    responsive-grid aside { display: block; }
+    responsive-grid nav { display: block; }
+}

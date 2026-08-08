@@ -1,0 +1,18 @@
+@view-transition {
+  navigation: auto;
+}
+
+:root {
+    color-scheme: light dark;
+    --bg: var(--jelly-color-background-default, light-dark(#FFFFFF, #181B1D));
+    --surface: var(--jelly-color-background-surface, light-dark(#FFFFFF, #1E222A));
+    --text: var(--jelly-color-foreground-default, light-dark(#1F2430, #F2F3F7));
+    --muted: var(--jelly-color-foreground-muted, light-dark(#5D6474, #A9B1C2));
+    --line: var(--jelly-color-border-default, light-dark(#ECECEF, #343A46));
+    --accent: var(--jelly-color-background-accent, light-dark(#0077CC, #4DA6FF));
+    --field: var(--jelly-color-background-muted, light-dark(#F4F5F7, #262B34));
+    --display: var(--jelly-font-display);
+    --body: var(--jelly-font-text);
+    --mono: var(--jelly-font-mono);
+    --header-h: 58px;
+}
