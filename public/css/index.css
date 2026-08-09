@@ -15,4 +15,5 @@
     --body: var(--jelly-font-text);
     --mono: var(--jelly-font-mono);
     --header-h: 58px;
+    --footer-h: 7rem;
 }

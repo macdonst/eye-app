@@ -5,7 +5,8 @@ responsive-grid {
         'header'
         'main'
         'footer';
-    grid-template-rows: min-content 1fr min-content;
+    grid-template-rows: min-content 1fr var(--footer-h);
+    overflow: clip;
 }
 
 responsive-grid header {
@@ -42,8 +43,17 @@ responsive-grid aside {
     grid-area: right-sidebar;
     display: none;
 }
+/* The footer floats above the content and the page scrolls under it. A grid
+   item's sticky containing block is its own grid area, so the footer has to
+   span the main row as well to have anywhere to stick; the footer row is left
+   behind to reserve the space it lands in at the end of the scroll. */
 responsive-grid footer {
-    grid-area: footer;
+    grid-row: main-start / footer-end;
+    grid-column: 1 / -1;
+    align-self: end;
+    position: sticky;
+    bottom: 0;
+    z-index: 9999;
 }
 
 /* >= 40rem: two-column layout; the middle row is 1fr so nav column fills to footer */
@@ -52,7 +62,7 @@ responsive-grid footer {
         grid-template:
         'header       header'         min-content
         'left-sidebar main'           1fr
-        'footer       footer'         min-content
+        'footer       footer'         var(--footer-h)
         / minmax(auto, var(--layout-max-sidebar-width, 16rem))
           minmax(var(--layout-min-content-width, 16rem), 1fr);
     }
@@ -65,7 +75,7 @@ responsive-grid footer {
         grid-template:
         'header       header       header'        min-content
         'left-sidebar main         right-sidebar' 1fr
-        'footer       footer       footer'        min-content
+        'footer       footer       footer'        var(--footer-h)
         / minmax(auto, var(--layout-max-sidebar-width, 16rem))
           minmax(var(--layout-min-content-width, 16rem), 1fr)
           minmax(auto, var(--layout-max-sidebar-width, 16rem));
