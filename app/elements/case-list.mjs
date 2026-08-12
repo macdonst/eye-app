@@ -6,7 +6,7 @@ export default function CaseList({ html, state }) {
 <style>
 </style>
 <jelly-card>
-    ${caseitems.map(caseitem => `<a href="/cases/${caseitem.key}">${caseitem.title}</a>`).join('\n')}
+    ${caseitems.map(caseitem => `<p><a href="/cases/${caseitem.key}">${caseitem.title}</a></p>`).join('\n')}
 </jelly-card>
 `
 }

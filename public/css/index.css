@@ -14,6 +14,6 @@
     --display: var(--jelly-font-display);
     --body: var(--jelly-font-text);
     --mono: var(--jelly-font-mono);
-    --header-h: 58px;
+    --header-h: 68px;
     --footer-h: 7rem;
 }
