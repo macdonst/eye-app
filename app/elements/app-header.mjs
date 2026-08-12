@@ -19,7 +19,7 @@ export default function AppHeader({ html }) {
     <header class="flex flex-row-lg align-items-center justify-content-between gap0 leading1">
         <div class="flex flex-row-lg align-items-center justify-content-between gap0 leading1">
             <div>
-                Eye App
+                <a href="/">Eye App</a>
             </div>
             <app-nav></app-nav>
         </div>

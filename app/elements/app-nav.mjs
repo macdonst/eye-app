@@ -7,7 +7,7 @@ export default function AppNav({ html }) {
     align-items: center;
     width: 100%;
     gap: 6px;
-    display: hidden;
+    display: none;
   }
   @media screen and (min-width: 48em) {
     /* reset */
