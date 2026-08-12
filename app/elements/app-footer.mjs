@@ -4,9 +4,17 @@ export default function AppFooter({ html, state }) {
   return html`
 <style>
     :host {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: none;
+    }
+    @media screen and (max-width: 48em) {
+        :host {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            bottom: 0;
+            z-index: 10000;
+        }
     }
 </style>
 <footer class="p0">
