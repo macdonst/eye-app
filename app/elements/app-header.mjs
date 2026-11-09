@@ -23,7 +23,9 @@ export default function AppHeader({ html }) {
             </div>
             <app-nav></app-nav>
         </div>
-        <jelly-button size="small">Submission</jelly-button>
+        <nav-button>
+            <jelly-button size="small" data-link="/caseitems">Submission</jelly-button>
+        </nav-button>
     </header>
     </jelly-card>
 </site-container>

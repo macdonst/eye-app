@@ -1,12 +1,12 @@
 /* global customElements, navigation, HTMLElement */
-export class AppFooter extends HTMLElement {
-  static tag = "app-footer"
+export class NavButton extends HTMLElement {
+  static tag = "nav-button"
   static {
-    customElements.define(AppFooter.tag, AppFooter)
+    customElements.define(NavButton.tag, NavButton)
   }
   constructor() {
     super()
-    this.buttonBar = this.querySelector("jelly-card")
+    this.buttonBar = this.querySelector("jelly-button")
   }
   connectedCallback() {
     this.buttonBar.addEventListener("click", this.navigate)
