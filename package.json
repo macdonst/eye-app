@@ -4,7 +4,8 @@
   "scripts": {
     "start": "npx enhance dev",
     "lint": "eslint ./app/**/*.mjs --fix",
-    "enhance": "enhance"
+    "enhance": "enhance",
+    "test": "echo 0"
   },
   "devDependencies": {
     "@architect/architect": "^11.3.0",
