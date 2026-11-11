@@ -5,8 +5,7 @@ export default function CaseItem({ html, state }) {
 <style>
 </style>
 <jelly-card>
-  <h1 class="text2 text3-lg leading1 font-bold p-name mbe2-lg">${caseitem.title}</h1>
-  <h2 class="font-bold mbe0 mbs1 text1 text2-lg leading2">Case presentation</h2>
+  <h2 class="font-bold mbe0 mbs1 text1 text2-lg leading2">Presentation</h2>
   <p>${caseitem.presentation}</p>
 </jelly-card>
 <jelly-card class="mbs0">

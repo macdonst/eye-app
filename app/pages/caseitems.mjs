@@ -8,13 +8,15 @@ export default function Html ({ html, state }) {
   const caseitem = store.caseitem || {}
   const problems = store.problems || {}
 
-  return html`<enhance-page-container>
-  <main>
-    <h1 class="mb1 font-semibold text3">Caseitems page</h1>
+  return html`<jelly-theme mode="auto">
+    <app-header></app-header>
+    <main class="p0">
+      <site-container>
+        <jelly-card>
     ${caseitems.map(item => `<article class="mb2">
 <div class="mb0">
+  <p class="pb-2"><strong class="capitalize">case number: </strong>${item?.casenum || ''}</p>
   <p class="pb-2"><strong class="capitalize">title: </strong>${item?.title || ''}</p>
-  <p class="pb-2"><strong class="capitalize">about: </strong>${item?.about || ''}</p>
   <p class="pb-2"><strong class="capitalize">presentation: </strong>${item?.presentation || ''}</p>
   <p class="pb-2"><strong class="capitalize">key: </strong>${item?.key || ''}</p>
 </div>
@@ -25,8 +27,6 @@ export default function Html ({ html, state }) {
   <enhance-submit-button><span slot="label">Delete this caseitem</span></enhance-submit-button>
 </form>
 </article>`).join('\n')}
-<details class="mb0" ${Object.keys(problems).length ? 'open' : ''}>
-    <summary>New caseitem</summary>
     <enhance-form
   action="/caseitems/${caseitem.key}"
   method="POST">
@@ -34,16 +34,18 @@ export default function Html ({ html, state }) {
     <p>Found some problems!</p>
     <ul>${problems.form}</ul>
   </div>
-  <enhance-fieldset legend="Caseitem">
+  <enhance-fieldset legend="New Case">
+  <enhance-text-input label="Case Number" type="text" id="casenum" name="casenum" value="${caseitem?.casenum}" errors="${problems?.about?.errors}"></enhance-text-input>
   <enhance-text-input label="Title" type="text" id="title" name="title" value="${caseitem?.title}" errors="${problems?.title?.errors}"></enhance-text-input>
-  <enhance-text-input label="About" type="text" id="about" name="about" value="${caseitem?.about}" errors="${problems?.about?.errors}"></enhance-text-input>
   <enhance-text-input label="Presentation" type="text" id="presentation" name="presentation" value="${caseitem?.presentation}" errors="${problems?.presentation?.errors}"></enhance-text-input>
   <input type="hidden" id="key" name="key" value="${caseitem?.key}" />
   <enhance-submit-button style="float: right"><span slot="label">Save</span></enhance-submit-button>
   </enhance-fieldset>
 </enhance-form>
-</details>
-</main>
-</enhance-page-container>
+        </jelly-card>
+      </site-container>
+    </main>
+    <app-footer></app-footer>
+</jelly-theme>
   `
 }
