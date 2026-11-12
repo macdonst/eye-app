@@ -10,14 +10,14 @@ export class QuestionItem extends HTMLElement {
     this.correctAnswer = this.querySelector("jelly-dialog")
   }
   connectedCallback() {
-    this.buttonHome.addEventListener("click", this.navigate)
+    this.buttonHome.addEventListener("click", this.check)
   }
   disconnectedCallback() {
-    this.buttonHome.removeEventListener("click", this.navigate)
+    this.buttonHome.removeEventListener("click", this.check)
   }
-  navigate = (event) => {
-    console.log(event.srcElement.innerText)
-    if (event.srcElement.innerText !== 'A. The red arrow') {
+  check = (event) => {
+    const clickedOn = event.srcElement.innerText.substring(0,1)
+    if (clickedOn !== this.getAttribute("correct")) {
       jellyToast('Incorrect try again', { tone: 'danger', position: 'bottom' })
     } else {
       this.correctAnswer.showModal()

@@ -2,6 +2,7 @@ export default function CaseItem({ html, state }) {
   const { store = {} } = state
   const { caseitem } = store
   console.log(caseitem)
+  const questions = buildQuestions(caseitem.question)
   return html`
 <style>
 </style>
@@ -10,6 +11,7 @@ export default function CaseItem({ html, state }) {
   <h2 class="font-bold mbe0 mbs1 text1 text2-lg leading2">Presentation</h2>
   <p>${caseitem.presentation}</p>
 </jelly-card>
+${questions}
 <jelly-card class="mbs0">
   <h2 class="font-bold mbe0 mbs1 text1 text2-lg leading2">Question 1</h2>
   <p>On this B-scan, where is the scleral buckle located? On this image we see an L9 view of the right eye along with a marker indicating the thickness of the posterior ocular coats.</p>
@@ -26,4 +28,24 @@ export default function CaseItem({ html, state }) {
   ${caseitem?.objective?.map(objective => `<p>${objective}</p>`).join('')}
 </jelly-card>
 `
+}
+
+function buildQuestions(question) {
+  const text = question.map(q => {
+    return `<jelly-card class="mbs0">
+  <h2 class="font-bold mbe0 mbs1 text1 text2-lg leading2">Question 1</h2>
+  <p>${q.text}</p>
+  <question-item correct="${q.correct}">
+    <jelly-button>A. ${q.optiona}</jelly-button>
+    <jelly-button>B. ${q.optionb}</jelly-button>
+    <jelly-button>C. ${q.optionc}</jelly-button>
+    <jelly-button>D. ${q.optiond}</jelly-button>
+    <jelly-dialog>
+        <h2 class="font-bold mbe0 mbs1 text1 text2-lg leading2">Correct</h2>
+        <p style="margin:0">${q.answer}</p>
+    </jelly-dialog>
+  </question-item>
+</jelly-card>`
+  })
+  return text.join('')
 }
