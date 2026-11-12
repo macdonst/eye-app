@@ -6,7 +6,7 @@ export const Caseitem = {
       "type": "string"
     },
     "casenum": {
-      "type": "string"
+      "type": "number"
     },
     "presentation": {
       "type": "string"
