@@ -27,9 +27,10 @@ export default function Html ({ html, state }) {
   <enhance-submit-button><span slot="label">Delete this caseitem</span></enhance-submit-button>
 </form>
 </article>`).join('\n')}
-    <enhance-form
+    <form
   action="/caseitems/${caseitem.key}"
-  method="POST">
+  method="POST"
+  id="caseform">
   <div class="${problems.form ? 'block' : 'hidden'}">
     <p>Found some problems!</p>
     <ul>${problems.form}</ul>
@@ -44,7 +45,7 @@ export default function Html ({ html, state }) {
   <input type="hidden" id="key" name="key" value="${caseitem?.key}" />
 
   <jelly-divider>Questions</jelly-divider>
-  <jelly-label for="question[0].text">Question</jelly-label>
+  <jelly-label for="question[0].text">Question 1</jelly-label>
   <jelly-input label="Question" type="text" id="question[0].text" name="question[0].text" value="${caseitem?.question && caseitem?.question[0]?.text}" errors="${problems?.about?.errors}" class="w-100"></jelly-input>
   <jelly-label for="question[0].optiona">Option A</jelly-label>
   <jelly-input label="Option A" type="text" id="question[0].optiona" name="question[0].optiona" value="${caseitem?.question && caseitem?.question[0]?.optiona}" errors="${problems?.about?.errors}" class="w-100"></jelly-input>
@@ -63,13 +64,14 @@ export default function Html ({ html, state }) {
   </jelly-select>
   <jelly-label for="question[0].answer">Answer</jelly-label>
   <jelly-textarea label="Answer" type="text" id="question[0].answer" name="question[0].answer" value="${caseitem?.question && caseitem?.question[0]?.answer}" errors="${problems?.presentation?.errors}" class="w-100"></jelly-textarea>
+  <add-question-button index="0"></add-question-button>
 
   <jelly-divider>Learning Objectives</jelly-divider>
   <jelly-input type="text" name="objective" class="w-100"></jelly-input>
   <add-objective-button></add-objective-button>
   <submit-case-button></submit-case-button>
   </jelly-fieldset>
-</enhance-form>
+</form>
         </jelly-card>
       </site-container>
     </main>

@@ -13,17 +13,6 @@ export default function CaseItem({ html, state }) {
 </jelly-card>
 ${questions}
 <jelly-card class="mbs0">
-  <h2 class="font-bold mbe0 mbs1 text1 text2-lg leading2">Question 1</h2>
-  <p>On this B-scan, where is the scleral buckle located? On this image we see an L9 view of the right eye along with a marker indicating the thickness of the posterior ocular coats.</p>
-  <img class="mbs0" src="/_public/images/case-8/question-1.png"/>
-  <question-item>
-    <jelly-button>A. The red arrow</jelly-button>
-    <jelly-button>B. The yellow arrow</jelly-button>
-    <jelly-button>C. The blue arrow</jelly-button>
-    <jelly-button>D. The green arrow</jelly-button>
-  </question-item>
-</jelly-card>
-<jelly-card class="mbs0">
   <h2 class="font-bold mbe0 text1 text2-lg leading2">Learning Objectives</h2>
   ${caseitem?.objective?.map(objective => `<p>${objective}</p>`).join('')}
 </jelly-card>
@@ -31,9 +20,9 @@ ${questions}
 }
 
 function buildQuestions(question) {
-  const text = question.map(q => {
+  const text = question.map((q, i) => {
     return `<jelly-card class="mbs0">
-  <h2 class="font-bold mbe0 mbs1 text1 text2-lg leading2">Question 1</h2>
+  <h2 class="font-bold mbe0 mbs1 text1 text2-lg leading2">Question ${i+1}</h2>
   <p>${q.text}</p>
   <question-item correct="${q.correct}">
     <jelly-button>A. ${q.optiona}</jelly-button>
