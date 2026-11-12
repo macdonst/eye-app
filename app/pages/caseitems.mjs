@@ -34,13 +34,20 @@ export default function Html ({ html, state }) {
     <p>Found some problems!</p>
     <ul>${problems.form}</ul>
   </div>
-  <enhance-fieldset legend="New Case">
-  <enhance-text-input label="Case Number" type="text" id="casenum" name="casenum" value="${caseitem?.casenum}" errors="${problems?.about?.errors}"></enhance-text-input>
-  <enhance-text-input label="Title" type="text" id="title" name="title" value="${caseitem?.title}" errors="${problems?.title?.errors}"></enhance-text-input>
-  <enhance-text-input label="Presentation" type="text" id="presentation" name="presentation" value="${caseitem?.presentation}" errors="${problems?.presentation?.errors}"></enhance-text-input>
+  <jelly-fieldset legend="New Case">
+  <jelly-label for="casenum">Case Number</jelly-label>
+  <jelly-input label="Case Number" type="text" id="casenum" name="casenum" value="${caseitem?.casenum}" errors="${problems?.about?.errors}" class="w-100"></jelly-input>
+  <jelly-label for="title">Title</jelly-label>
+  <jelly-input label="Title" type="text" id="title" name="title" value="${caseitem?.title}" errors="${problems?.title?.errors}" class="w-100"></jelly-input>
+  <jelly-label for="presentation">Presentation</jelly-label>
+  <jelly-textarea label="Presentation" type="text" id="presentation" name="presentation" value="${caseitem?.presentation}" errors="${problems?.presentation?.errors}" class="w-100"></jelly-textarea>
   <input type="hidden" id="key" name="key" value="${caseitem?.key}" />
-  <enhance-submit-button style="float: right"><span slot="label">Save</span></enhance-submit-button>
-  </enhance-fieldset>
+  <jelly-divider>Questions</jelly-divider>
+  <jelly-divider>Learning Objectives</jelly-divider>
+  <jelly-input type="text" name="objective" class="w-100"></jelly-input>
+  <add-objective-button></add-objective-button>
+  <submit-case-button></submit-case-button>
+  </jelly-fieldset>
 </enhance-form>
         </jelly-card>
       </site-container>

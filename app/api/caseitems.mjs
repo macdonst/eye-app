@@ -28,8 +28,14 @@ export async function get (req) {
  */
 export async function post (req) {
   const session = req.session
+
   // Validate
   let { problems, caseitem } = await validate.create(req)
+
+  if (!Array.isArray(caseitem.objective)) {
+    caseitem.objective = [caseitem.objective]
+  }
+
   if (problems) {
     return {
       session: { ...session, problems, caseitem },

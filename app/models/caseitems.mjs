@@ -8,6 +8,7 @@ const deleteCaseitem = async function (key) {
 }
 
 const upsertCaseitem = async function (caseitem) {
+  console.log('upsert', caseitem)
   return data.set({ table: 'caseitems', ...caseitem })
 }
 

@@ -1,6 +1,7 @@
 export default function CaseItem({ html, state }) {
   const { store = {} } = state
   const { caseitem } = store
+  console.log(caseitem)
   return html`
 <style>
 </style>
@@ -21,7 +22,7 @@ export default function CaseItem({ html, state }) {
 </jelly-card>
 <jelly-card class="mbs0">
   <h2 class="font-bold mbe0 text1 text2-lg leading2">Learning Objectives</h2>
-  <p>${caseitem.presentation}</p>
+  ${caseitem?.objective?.map(objective => `<p>${objective}</p>`).join('')}
 </jelly-card>
 `
 }

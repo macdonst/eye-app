@@ -17,3 +17,7 @@
     --header-h: 68px;
     --footer-h: 7rem;
 }
+
+.w-100 {
+  width: 100%;
+}
