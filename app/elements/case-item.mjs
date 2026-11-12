@@ -13,8 +13,9 @@ export default function CaseItem({ html, state }) {
 </jelly-card>
 ${questions}
 <jelly-card class="mbs0">
-  <h2 class="font-bold mbe0 text1 text2-lg leading2">Learning Objectives</h2>
-  ${caseitem?.objective?.map(objective => `<p>${objective}</p>`).join('')}
+  <jelly-collapsible>
+    <span class="font-bold mbe0 text1 text2-lg leading2" slot="header">Explore Learning Objectives</span>${caseitem?.objective?.map(objective => `<p>${objective}</p>`).join('')}
+  </jelly-collapsible>
 </jelly-card>
 `
 }
